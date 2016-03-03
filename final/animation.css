@@ -10,9 +10,19 @@
 }
 
 body {
-	-webkit-animation: bg-move 12s ease-out infinite;
-	-webkit-animation-direction: alternate;
+	-webkit-animation: bg-move 12s ease-out forwards;
+	-webkit-animation-play-state: paused;
 }
+
+body:hover {
+	-webkit-animation-play-state: running;
+}
+
+.mike {
+	-webkit-animation: mike-move 6s 6s ease-out forwards,
+										mike-float 3.5s infinite;
+}
+
 
 /*	Keyframes - WebKit only
 ------------------------------------------ */
@@ -29,6 +39,14 @@ body {
 }
 
 @-webkit-keyframes bg-move {
-	0% {background-position: 100% -460px;}
+	0% {background-position: 100% -560px;}
 	100% {background-position: -350% -460px;}
+}
+
+@-webkit-keyframes mike-move {
+	100% {left: 12%;}
+}
+
+@webkit-keyframes mike-float {
+	50% {-webkit-transform: rotateZ(5deg) translateY(-5px);}
 }
